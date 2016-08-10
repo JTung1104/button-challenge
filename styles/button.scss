@@ -28,7 +28,7 @@ $continue-color: #1ABC96;
   border: none;
 
   &:active {
-    top: 8px;
+    top: $button-box-shadow-difference + 1px; // add the initial relative position
     box-shadow: $box-shadow-dimensions-depressed darken($button-color, 5%);
     outline: none;
   }
