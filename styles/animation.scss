@@ -1,0 +1,66 @@
+$warning-color: #CB3B27;
+$continue-color: #1ABC96;
+
+@mixin transform($params) {
+  -webkit-transform: $params;
+  -ms-transform: $params;
+  transform: $params;
+}
+
+@keyframes button-prompt {
+  from {
+    visibility: hidden;
+    @include transform(translateY(-50px));
+  }
+
+  10% {
+    @include transform(translateY(0px));
+  }
+
+  to {
+    visibility: visible;
+    @include transform(translateY(0px));
+  }
+}
+
+@mixin button-prompt-animation {
+  animation-name: button-prompt;
+  animation-duration: 10s;
+}
+
+@keyframes pulse {
+  from {
+    @include transform(scale3d(1, 1, 1));
+  }
+
+  50% {
+    @include transform(scale3d(1.05, 1.05, 1.05));
+  }
+
+  to {
+    @include transform(scale3d(1, 1, 1));
+  }
+}
+
+@mixin pulse-animation {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: 3;
+}
+
+@mixin prompt {
+  visibility: hidden;
+  position: absolute;
+  left: 60%;
+  top: 41%;
+}
+
+.warning {
+  @include prompt;
+  color: $warning-color;
+}
+
+.continue {
+  @include prompt;
+  color: $continue-color;
+}

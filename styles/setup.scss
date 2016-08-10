@@ -6,6 +6,12 @@
   }
 }
 
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   margin: 0;
 }
@@ -30,4 +36,7 @@ body {
   }
 }
 
-
+.button-container {
+  @include center;
+  min-height: 500px;
+}
